@@ -154,6 +154,9 @@ const deleteUser = async (req, res) => {
                 message: `User with the id ${id} is not found`
             })
         }
+        if (req.user._id.toString() !== id && !req.user.admin) {
+            return res.status(403).json({ message: "Not authorized to delete this user" })
+        }
         res.status(200).json({
             message: "User deleted successfully"
         })

@@ -41,7 +41,7 @@ const createUser = async (req, res) => {
             try {
                 const mailObj = {
                     mailFrom: `JustBlogIt ${process.env.KITS_EMAIL}`,
-                    mailTo: email,
+                    mailTo: normalizedEmail,
                     subject: 'JustBlogIt OTP Verification',
                     body: `
                         <h1>Welcome to JustBlogIt, <strong>${username}</strong> 🙌</h1>
